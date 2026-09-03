@@ -1,0 +1,120 @@
+/* Reset global y fondo */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0f172a;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  min-height: 100vh;
+}
+
+/* Encabezado */
+header {
+  padding: 20px;
+  background-color: #1e293b;
+  border-bottom: 3px solid #38bdf8;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+header p {
+  margin: 5px 0 0;
+  color: #94a3b8;
+}
+
+/* Cuadrícula de juegos */
+.grid-juegos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+  padding: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Tarjetas individuales de cada juego */
+.card-juego {
+  background: #1e293b;
+  border: 2px solid #334155;
+  border-radius: 12px;
+  padding: 20px 10px;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
+  user-select: none;
+}
+
+.card-juego:hover {
+  transform: translateY(-5px) scale(1.03);
+  border-color: #38bdf8;
+  box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
+}
+
+.icono {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.proximamente {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Pantalla del juego (Modal centrado) */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(15, 23, 42, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Botón para volver al menú */
+.btn-cerrar {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  z-index: 1001;
+  transition: background 0.2s;
+}
+
+.btn-cerrar:hover {
+  background: #dc2626;
+}
+
+/* Marco responsivo perfecto para PC y Celular */
+iframe {
+  /* En PC toma hasta 800px; en celular toma el 92% del ancho */
+  width: min(92vw, 800px);
+  
+  /* En PC toma hasta 700px; en celular toma el 82% del alto */
+  height: min(82vh, 700px);
+  
+  border: 3px solid #38bdf8;
+  border-radius: 16px;
+  background-color: #000000;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+}

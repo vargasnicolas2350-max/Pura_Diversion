@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Friv Arcade</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>🎮 Arcade Zone</h1>
+    <p>¡Elige un juego y empieza a jugar!</p>
+  </header>
+
+  <!-- Cuadrícula de Juegos -->
+  <main class="grid-juegos">
+    
+    <!-- Tarjeta Juego 1: Culebrita -->
+    <div class="card-juego" onclick="abrirJuego('Culebrita/index.html')">
+      <div class="icono">🐍</div>
+      <h3>La Culebrita</h3>
+    </div>
+
+    <!-- Espacio para futuros juegos -->
+    <div class="card-juego proximamente">
+      <div class="icono">❓</div>
+      <h3>Próximamente...</h3>
+    </div>
+
+  </main>
+
+  <!-- Pantalla para jugar dentro de la misma web -->
+  <div id="pantalla-juego" class="modal hidden">
+    <button class="btn-cerrar" onclick="cerrarJuego()">❌ Volver al Menú</button>
+    <iframe id="frame-juego" src=""></iframe>
+  </div>
+
+  <script>
+    function abrirJuego(url) {
+      document.getElementById('frame-juego').src = url;
+      document.getElementById('pantalla-juego').classList.remove('hidden');
+    }
+
+    function cerrarJuego() {
+      document.getElementById('pantalla-juego').classList.add('hidden');
+      document.getElementById('frame-juego').src = '';
+    }
+  </script>
+</body>
+</html>
