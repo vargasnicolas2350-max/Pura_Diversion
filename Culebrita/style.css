@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none; /* Evita seleccionar texto al tocar rápido en celular */
+  -webkit-user-select: none;
+  touch-action: manipulation; /* Optimiza toques en pantalla */
+}
+
+body {
+  background-color: #0d1117;
+  color: #c9d1d9;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 10px;
+}
+
+.game-container {
+  text-align: center;
+  background-color: #161b22;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #30363d;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 440px;
+}
+
+h1 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #58a6ff;
+}
+
+.score-board {
+  display: flex;
+  justify-content: space-around;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  background-color: #21262d;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+#score {
+  color: #2ea043;
+}
+
+#high-score {
+  color: #e3b341;
+}
+
+.canvas-wrapper {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+canvas {
+  background-color: #000000;
+  border: 2px solid #30363d;
+  border-radius: 6px;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Controles tipo D-Pad para celular */
+.dpad-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.dpad-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dpad-center {
+  width: 55px;
+  height: 55px;
+}
+
+.dpad-btn {
+  width: 55px;
+  height: 55px;
+  background-color: #21262d;
+  color: #58a6ff;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3px;
+  transition: background-color 0.1s;
+}
+
+.dpad-btn:active {
+  background-color: #30363d;
+  transform: scale(0.95);
+}
+
+.controls-hint {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #8b949e;
+}
