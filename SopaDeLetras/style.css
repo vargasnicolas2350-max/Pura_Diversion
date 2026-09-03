@@ -1,0 +1,258 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 10px;
+  background-color: #0f172a;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  user-select: none;
+  overflow: hidden;
+}
+
+.contenedor-juego {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+/* --- Pantalla Inicial de Categorías --- */
+.pantalla-inicio {
+  background-color: #1e293b;
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid #334155;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.pantalla-inicio h2 {
+  margin-top: 0;
+  color: #38bdf8;
+}
+
+.pantalla-inicio p {
+  color: #94a3b8;
+  margin-bottom: 20px;
+}
+
+.grid-categorias {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.btn-categoria {
+  background-color: #0f172a;
+  color: #38bdf8;
+  border: 1px solid #38bdf8;
+  padding: 12px 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.btn-categoria:hover {
+  background-color: #38bdf8;
+  color: #0f172a;
+  transform: translateY(-2px);
+}
+
+/* --- Layout Responsivo del Juego --- */
+.layout-juego {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* VISTA PARA PORTÁTIL / COMPUTADOR (Prioridad máxima al tablero) */
+@media (min-width: 768px) {
+  .layout-juego {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1000px;
+    gap: 20px;
+  }
+
+  /* Zona del Tablero: Ocupa la mayor parte de la pantalla */
+  .zona-tablero {
+    flex: 2.2; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Panel lateral de palabras: Mucho más compacto */
+  .zona-info {
+    flex: 0.8;
+    display: flex;
+    flex-direction: column;
+    height: min(85vh, 580px);
+    justify-content: space-between;
+    background-color: #1e293b;
+    padding: 15px;
+    border-radius: 16px;
+    border: 1px solid #334155;
+  }
+
+  .lista-palabras {
+    max-height: 360px !important;
+    gap: 4px !important;
+    padding: 8px !important;
+  }
+
+  .palabra-tag {
+    font-size: 0.72rem !important;
+    padding: 4px 7px !important;
+  }
+}
+
+/* TABLERO DE LETRAS GIGANTE */
+.sopa-grid {
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  gap: 4px;
+  background-color: #1e293b;
+  padding: 12px;
+  border-radius: 16px;
+  border: 2px solid #334155;
+  /* Dimensión expandida */
+  width: min(94vw, 80vh, 580px);
+  height: min(94vw, 80vh, 580px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.letra-celda {
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+  font-size: min(4.2vw, 3vh, 1.35rem); /* Letras más grandes */
+  color: #f8fafc;
+  cursor: pointer;
+  user-select: none;
+  padding: 0;
+  transition: background-color 0.15s, transform 0.1s;
+}
+
+.letra-celda:hover {
+  border-color: #38bdf8;
+  background-color: #1e293b;
+}
+
+.letra-celda:active {
+  transform: scale(0.9);
+}
+
+.letra-celda.seleccionada {
+  background-color: #eab308 !important;
+  color: #0f172a !important;
+  border-color: #facc15 !important;
+  box-shadow: 0 0 8px #eab308;
+}
+
+.letra-celda.encontrada {
+  background-color: #22c55e !important;
+  color: #0f172a !important;
+  border-color: #4ade80 !important;
+}
+
+/* Zona Informativa y Palabras */
+.encabezado h2 {
+  margin: 0;
+  color: #38bdf8;
+  font-size: 1.2rem;
+}
+
+.encabezado h3 {
+  margin: 2px 0 8px 0;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+.lista-palabras {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  gap: 5px;
+  background-color: #0f172a;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #334155;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.palabra-tag {
+  background-color: #1e293b;
+  color: #f8fafc;
+  padding: 5px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border: 1px solid #475569;
+}
+
+.palabra-tag.encontrada {
+  background-color: #22c55e;
+  color: #0f172a;
+  border-color: #22c55e;
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* Botones de Acción */
+.acciones {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.btn-accion {
+  padding: 8px 14px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #38bdf8;
+  color: #0f172a;
+  transition: transform 0.1s;
+}
+
+.btn-accion:active {
+  transform: scale(0.95);
+}
+
+.btn-accion.secundario {
+  background-color: #475569;
+  color: white;
+}
+
+.hidden {
+  display: none !important;
+}

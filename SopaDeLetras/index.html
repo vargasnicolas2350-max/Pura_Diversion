@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Sopa de Letras</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contenedor-juego">
+
+    <!-- Pantalla 1: Selección de Categoría -->
+    <div id="pantalla-inicio" class="pantalla-inicio">
+      <h2>🔤 Sopa de Letras</h2>
+      <p>Elige una categoría para empezar:</p>
+      <div class="grid-categorias">
+        <button class="btn-categoria" onclick="iniciarJuego('ciudades')">🏙️ Ciudades</button>
+        <button class="btn-categoria" onclick="iniciarJuego('carros')">🚗 Marcas de Carros</button>
+        <button class="btn-categoria" onclick="iniciarJuego('restaurantes')">🍔 Restaurantes</button>
+        <button class="btn-categoria" onclick="iniciarJuego('computadores')">💻 Marcas de PC</button>
+        <button class="btn-categoria" onclick="iniciarJuego('celulares')">📱 Celulares</button>
+        <button class="btn-categoria" onclick="iniciarJuego('paises')">🌍 Países</button>
+        <button class="btn-categoria" onclick="iniciarJuego('objetos')">🪑 Objetos del Hogar</button>
+        <button class="btn-categoria" onclick="iniciarJuego('nombres')">👤 Nombres</button>
+        <button class="btn-categoria" onclick="iniciarJuego('apellidos')">🪪 Apellidos</button>
+        <button class="btn-categoria" onclick="iniciarJuego('ciencia')">🧪 Elementos de Ciencia</button>
+      </div>
+    </div>
+
+    <!-- Pantalla 2: Juego -->
+    <div id="pantalla-tablero" class="hidden layout-juego">
+      
+      <!-- Zona Principal: Tablero Gigante -->
+      <div class="zona-tablero">
+        <div id="sopa-grid" class="sopa-grid"></div>
+      </div>
+
+      <!-- Zona Lateral / Superior: Información y Palabras -->
+      <div class="zona-info">
+        <div class="encabezado">
+          <h2>🔤 Sopa de Letras</h2>
+          <h3 id="titulo-categoria">CATEGORÍA</h3>
+        </div>
+
+        <div id="lista-palabras" class="lista-palabras"></div>
+
+        <div class="acciones">
+          <button class="btn-accion" onclick="volverInicio()">⚙️ Categoría</button>
+          <button class="btn-accion secundario" onclick="reiniciarPartida()">🔄 Reiniciar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
